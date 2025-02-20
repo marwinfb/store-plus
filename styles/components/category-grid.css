@@ -7,9 +7,6 @@
         "ref mw ac ac";
     gap: 1rem;
     justify-content: center;
-
-    margin-top: 60px;
-    margin-bottom: 60px;
 }
 
 .card {
@@ -47,8 +44,6 @@
 .card__header {
     font-size: 1.5rem;
     margin-top: auto;
-    font-family: var(--font-primary);
-    letter-spacing: .5px;
 }
 
 .card--tv {
@@ -84,29 +79,4 @@
 .card--air-conditioner {
     grid-area: ac;
     --bg-color: var(--color-pale-green);
-}
-
-@media (max-width: 1100px) {
-    .category-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas:
-            "tv  av"
-            "wd mo"
-            "ref mw"
-            "ac ac";
-    }
-}
-
-@media (max-width: 550px) {
-    .category-grid {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "tv"
-            "av"
-            "wd"
-            "mo"
-            "ref"
-            "mw"
-            "ac";
-    }
 }

@@ -25,7 +25,7 @@
 
 .btn {
   display: inline-block;
-  background-color: var(--color-slate50);
+  /*background-color: var(--color-slate50);*/
   color: var(--color-dark);
   padding: 0.5em 1em;
   font-weight: 500;
@@ -36,11 +36,11 @@
 }
 
 .btn:hover {
-  background-color: var(--color-slate100);
+  /*background-color: var(--color-slate100);*/
 }
 
 .btn:focus-visible {
-  outline: solid var(--color-text);
+  /*outline: solid var(--color-text);*/
 }
 
 .section {
@@ -50,20 +50,20 @@
 .title {
   text-transform: uppercase;
   margin-bottom: 1rem;
-  font-family: var(--font-secondary);
-  color: var(--color-text);
+  font-family: var(--font-secondary), sans-serif;
+  /*color: var(--color-text);*/
   font-size: var(--size-xl);
 }
 
 /* XS */
-@media (min-width: 475px) {
+@media (max-width: 475px) {
   .container {
     max-width: 475px;
   }
 }
 
 /* SM */
-@media (min-width: 640px) {
+@media (max-width: 640px) {
   .container {
     max-width: 640px;
   }
@@ -71,17 +71,28 @@
   .title {
     font-size: var(--size-sm);
   }
+  .category-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+            "tv"
+            "av"
+            "wd"
+            "mo"
+            "ref"
+            "mw"
+            "ac";
+  }
 }
 
 /* MD */
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .container {
     max-width: 768px;
   }
 }
 
 /* LG */
-@media (min-width: 1024px) {
+@media (max-width: 1024px) {
   .container {
     max-width: 1024px;
   }
@@ -96,14 +107,23 @@
 }
 
 /* XL */
-@media (min-width: 1280px) {
+@media (max-width: 1280px) {
   .container {
     max-width: 1280px;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+            "tv  av"
+            "wd mo"
+            "ref mw"
+            "ac ac";
   }
 }
 
 /* 2XL */
-@media (min-width: 1536px) {
+@media (max-width: 1536px) {
   .container {
     max-width: 1536px;
   }

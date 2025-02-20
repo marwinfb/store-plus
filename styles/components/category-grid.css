@@ -86,7 +86,7 @@
     --bg-color: var(--color-pale-green);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
     .category-grid {
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas:

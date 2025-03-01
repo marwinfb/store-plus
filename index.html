@@ -21,8 +21,45 @@
         src: url('./assets/fonts/SamsungSharpSansBold.woff2') format('woff2');
       }
 
-      html {
-        min-height: 100%;
+      /* Reset */
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+
+      * {
+        margin: 0;
+      }
+
+      body {
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        font-family: var(--font-secondary), sans-serif;
+        padding-inline: 2rem;
+
+        min-height: 100vh;
+        display: grid;
+        place-content: center;
+      }
+
+      img, picture, video, canvas, svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      input, button, textarea, select {
+        font: inherit;
+      }
+
+      p, h1, h2, h3, h4, h5, h6 {
+        overflow-wrap: break-word;
+      }
+
+      p {
+        text-wrap: pretty;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        text-wrap: balance;
       }
 
       :root {
@@ -40,26 +77,20 @@
         --color-gray: #f5f5f5;
       }
 
-      body {
-        font-family: var(--font-secondary), sans-serif;
+      /* Utilities */
+      .site-page {
+        max-width: 1440px;
+        margin-inline: auto;
+        width: 100%;
       }
 
-      img,
-      picture,
-      video,
-      canvas,
-      svg {
-        display: block;
-        max-width: 100%;
-      }
-
-      /*  Grid Styles */
-      .category-grid {
+      .site-page {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(4, auto-fit);
+        grid-template-rows: repeat(4, auto-fit);
         grid-template-areas:
-            "tv ref mx mx"
+            "kv kv kv kv"
+            "tv rf mx mx"
             "av wd mx mx"
             "mo mw mx mx"
             "ac ac mx mx";
@@ -70,8 +101,18 @@
       .card {
         background-color: var(--bg-color);
         border-radius: 1rem;
-        color: #000;
+        color: var(--color-dark);
         padding: 2rem;
+        position: relative;
+      }
+
+      .card a::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
       }
 
       .card a {
@@ -91,14 +132,14 @@
       }
 
       .card__image {
-        max-width: 200px;
+        max-width: 120px;
         height: auto;
         object-fit: contain;
         transition: all 0.3s ease;
       }
 
       .card__image--ac {
-        max-width: 400px;
+        max-width: 250px;
       }
 
       .card:hover .card__image {
@@ -106,8 +147,14 @@
       }
 
       .card__header {
+        text-align: center;
         font-size: clamp(1.125rem, 0.993rem + 0.5634vw, 1.5rem);
         margin-top: auto;
+      }
+
+      .card--kv {
+        grid-area: kv;
+        --bg-color: var(--color-gray);
       }
 
       .card--tv {
@@ -131,7 +178,7 @@
       }
 
       .card--refrigerator {
-        grid-area: ref;
+        grid-area: rf;
         --bg-color: var(--color-pale-yellow);
       }
 
@@ -150,84 +197,44 @@
         --bg-color: var(--color-gray);
       }
 
-      .mx-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-      }
-
-      /* Utilities */
-      .container {
-        max-width: 1440px;
-        width: 90%;
-        margin-inline: auto;
-      }
-
-      .card--center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
       /* 2XL */
       @media (max-width: 1536px) {
-        .container {
+        .site-page {
           max-width: 1536px;
         }
       }
 
       /* LG */
       @media (max-width: 1024px) {
-        .container {
+        .site-page {
           max-width: 1024px;
         }
       }
 
       /* MD */
       @media (max-width: 768px) {
-        .container {
+        .site-page {
           max-width: 768px;
         }
       }
 
       /* XL */
       @media (max-width: 1280px) {
-        .container {
+        .site-page {
           max-width: 1280px;
         }
-
-        /*.category-grid {*/
-        /*  grid-template-columns: repeat(2, 1fr);*/
-        /*  grid-template-areas:*/
-        /*    "tv  av wd mo"*/
-        /*    "ref mw ac ac"*/
-        /*    "mx mx mx mx";*/
-        /*}*/
       }
 
       /* SM */
       @media (max-width: 640px) {
-        .container {
+        .site-page {
           max-width: 640px;
         }
-
-        /*.category-grid {*/
-        /*  grid-template-columns: 1fr;*/
-        /*  grid-template-areas:*/
-        /*    "tv"*/
-        /*    "av"*/
-        /*    "wd"*/
-        /*    "mo"*/
-        /*    "ref"*/
-        /*    "mw"*/
-        /*    "ac";*/
-        /*}*/
       }
 
       /* XS */
       @media (max-width: 475px) {
-        .container {
+        .site-page {
           max-width: 475px;
         }
       }
@@ -236,94 +243,83 @@
 
   </head>
   <body>
-    <div class="container">
+    <div class="site-page">
 
-      <div>
+      <header class="card--kv">
         <img src="./assets/images/header-banner.png" alt="Do More with a Smart Home">
-      </div>
+      </header>
 
-      <div class="section">
+      <article class="card card--tv">
+        <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.tvs/" target="_blank">
+          <div class="card__inner-wrapper">
+            <img src="./assets/images/product-qled-tv.png" class="card__image" width="500" height="500" alt="TVs Category">
+            <h2 class="card__header">TVs</h2>
+          </div>
+        </a>
+      </article>
 
-        <div class="category-grid">
+      <article class="card card--sound-device">
+        <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.audio-devices/" target="_blank">
+          <div class="card__inner-wrapper">
+            <img src="./assets/images/product-sound-tower.png" class="card__image" width="500" height="500" alt="Sound Devices Category">
+            <h2 class="card__header">Sound Devices</h2>
+          </div>
+        </a>
+      </article>
 
-          <article class="card card--tv">
-            <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.tvs/" target="_blank">
-              <div class="card__inner-wrapper">
-                <img src="./assets/images/product-qled-tv.png" class="card__image" width="500" height="500" alt="TVs Category">
-                <h2 class="card__header">TVs</h2>
-              </div>
-            </a>
-          </article>
+      <article class="card card--washer-dryer">
+        <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.washers-and-dryers/" target="_blank">
+          <div class="card__inner-wrapper">
+            <img src="./assets/images/product-washer.png" class="card__image" width="500" height="500" alt="Washers and Dryers Category">
+            <h2 class="card__header">Washing Machines</h2>
+          </div>
+        </a>
+      </article>
 
-          <article class="card card--sound-device">
-            <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.audio-devices/" target="_blank">
-              <div class="card__inner-wrapper">
-                <img src="./assets/images/product-sound-tower.png" class="card__image" width="500" height="500" alt="Sound Devices Category">
-                <h2 class="card__header">Sound Devices</h2>
-              </div>
-            </a>
-          </article>
+      <article class="card card--monitor">
+        <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.monitors/" target="_blank">
+          <div class="card__inner-wrapper">
+            <img src="./assets/images/product-monitor.png" class="card__image" width="500" height="500" alt="Monitors Category">
+            <h2 class="card__header">Monitors</h2>
+          </div>
+        </a>
+      </article>
 
-          <article class="card card--washer-dryer">
-            <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.washers-and-dryers/" target="_blank">
-              <div class="card__inner-wrapper">
-                <img src="./assets/images/product-washer.png" class="card__image" width="500" height="500" alt="Washers & Dryers Category">
-                <h2 class="card__header">Washers & Dryers</h2>
-              </div>
-            </a>
-          </article>
+      <article class="card card--refrigerator">
+        <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.refrigerators/" target="_blank">
+          <div class="card__inner-wrapper">
+            <img src="./assets/images/product-refrigerator.png" class="card__image" width="500" height="500" alt="Refrigerators Category">
+            <h2 class="card__header">Refrigerators</h2>
+          </div>
+        </a>
+      </article>
 
-          <article class="card card--monitor">
-            <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.monitors/" target="_blank">
-              <div class="card__inner-wrapper">
-                <img src="./assets/images/product-monitor.png" class="card__image" width="500" height="500" alt="Monitors">
-                <h2 class="card__header">Monitors</h2>
-              </div>
-            </a>
-          </article>
+      <article class="card card--microwave">
+        <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.microwave-ovens/" target="_blank">
+          <div class="card__inner-wrapper">
+            <img src="./assets/images/product-microwave.png" class="card__image" width="500" height="500" alt="Microwave Ovens Category">
+            <h2 class="card__header">Microwave Ovens</h2>
+          </div>
+        </a>
+      </article>
 
-          <article class="card card--refrigerator">
-            <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.refrigerators/" target="_blank">
-              <div class="card__inner-wrapper">
-                <img src="./assets/images/product-refrigerator.png" class="card__image" width="500" height="500" alt="Refrigerators">
-                <h2 class="card__header">Refrigerators</h2>
-              </div>
-            </a>
-          </article>
+      <article class="card card--air-conditioner">
+        <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.air-conditioners/" target="_blank">
+          <div class="card__inner-wrapper">
+            <img src="./assets/images/product-aircon.png" class="card__image card__image--ac" width="800" height="500" alt="Air Conditioners Category">
+            <h2 class="card__header">Air Conditioners</h2>
+          </div>
+        </a>
+      </article>
 
-          <article class="card card--microwave">
-            <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.microwave-ovens/" target="_blank">
-              <div class="card__inner-wrapper">
-                <img src="./assets/images/product-microwave.png" class="card__image" width="500" height="500" alt="Microwave Category">
-                <h2 class="card__header">Microwave Ovens</h2>
-              </div>
-            </a>
-          </article>
+      <article class="card card--mx">
+        <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.smartphones/" target="_blank">
+          <div class="card__inner-wrapper">
+            <img src="./assets/images/product-mx.png" class="" width="1000" height="auto" alt="Smartphones Category">
+          </div>
+        </a>
+      </article>
 
-          <article class="card card--air-conditioner">
-            <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.air-conditioners/" target="_blank">
-              <div class="card__inner-wrapper">
-                <img src="./assets/images/product-aircon.png" class="card__image card__image--ac" width="800" height="500" alt="Air Conditioners Category">
-                <h2 class="card__header">Air Conditioners</h2>
-              </div>
-            </a>
-          </article>
-
-          <article class="card card--center card--mx">
-            <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.smartphones/" target="_blank">
-              <div class="mx-content">
-                <img src="./assets/images/galaxy-s25-series-galaxy-ai.png" class="mx-headline-image" alt="">
-                <img src="./assets/images/online-exclusive-colors.png" class="mx-exclusive-headline-image" alt="">
-                <img src="./assets/images/galaxy-s25-ultra-online-exclusive-colors.png" class="mx-image" alt="">
-              </div>
-            </a>
-          </article>
-
-        </div>
-
-      </div>
-
-      <div class="section">&nbsp;</div>
     </div>
   </body>
 </html>

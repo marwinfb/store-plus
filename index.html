@@ -78,24 +78,20 @@
       }
 
       /* Utilities */
-      .site-page {
-        max-width: 1440px;
-        margin-inline: auto;
-        width: 100%;
-      }
-
-      .site-page {
+      .cards {
         display: grid;
-        grid-template-columns: repeat(4, auto-fit);
-        grid-template-rows: repeat(4, auto-fit);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
         grid-template-areas:
-            "kv kv kv kv"
-            "tv rf mx mx"
-            "av wd mx mx"
-            "mo mw mx mx"
-            "ac ac mx mx";
+            "tv rf"
+            "av wd"
+            "mo mw"
+            "ac ac";
         gap: 1.5rem;
         justify-content: center;
+        align-content: center;
+        width: 70%;
+        margin: 1.5rem auto;
       }
 
       .card {
@@ -132,14 +128,14 @@
       }
 
       .card__image {
-        max-width: 120px;
+        max-width: 150px;
         height: auto;
         object-fit: contain;
         transition: all 0.3s ease;
       }
 
       .card__image--ac {
-        max-width: 250px;
+        max-width: 300px;
       }
 
       .card:hover .card__image {
@@ -244,81 +240,74 @@
   </head>
   <body>
     <div class="site-page">
-
       <header class="card--kv">
         <img src="./assets/images/header-banner.png" alt="Do More with a Smart Home">
       </header>
 
-      <article class="card card--tv">
-        <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.tvs/" target="_blank">
-          <div class="card__inner-wrapper">
-            <img src="./assets/images/product-qled-tv.png" class="card__image" width="500" height="500" alt="TVs Category">
-            <h2 class="card__header">TVs</h2>
-          </div>
-        </a>
-      </article>
-
-      <article class="card card--sound-device">
-        <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.audio-devices/" target="_blank">
-          <div class="card__inner-wrapper">
-            <img src="./assets/images/product-sound-tower.png" class="card__image" width="500" height="500" alt="Sound Devices Category">
-            <h2 class="card__header">Sound Devices</h2>
-          </div>
-        </a>
-      </article>
-
-      <article class="card card--washer-dryer">
-        <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.washers-and-dryers/" target="_blank">
-          <div class="card__inner-wrapper">
-            <img src="./assets/images/product-washer.png" class="card__image" width="500" height="500" alt="Washers and Dryers Category">
-            <h2 class="card__header">Washing Machines</h2>
-          </div>
-        </a>
-      </article>
-
-      <article class="card card--monitor">
-        <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.monitors/" target="_blank">
-          <div class="card__inner-wrapper">
-            <img src="./assets/images/product-monitor.png" class="card__image" width="500" height="500" alt="Monitors Category">
-            <h2 class="card__header">Monitors</h2>
-          </div>
-        </a>
-      </article>
-
-      <article class="card card--refrigerator">
-        <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.refrigerators/" target="_blank">
-          <div class="card__inner-wrapper">
-            <img src="./assets/images/product-refrigerator.png" class="card__image" width="500" height="500" alt="Refrigerators Category">
-            <h2 class="card__header">Refrigerators</h2>
-          </div>
-        </a>
-      </article>
-
-      <article class="card card--microwave">
-        <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.microwave-ovens/" target="_blank">
-          <div class="card__inner-wrapper">
-            <img src="./assets/images/product-microwave.png" class="card__image" width="500" height="500" alt="Microwave Ovens Category">
-            <h2 class="card__header">Microwave Ovens</h2>
-          </div>
-        </a>
-      </article>
-
-      <article class="card card--air-conditioner">
-        <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.air-conditioners/" target="_blank">
-          <div class="card__inner-wrapper">
-            <img src="./assets/images/product-aircon.png" class="card__image card__image--ac" width="800" height="500" alt="Air Conditioners Category">
-            <h2 class="card__header">Air Conditioners</h2>
-          </div>
-        </a>
-      </article>
-
-      <article class="card card--mx">
-        <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.smartphones/" target="_blank">
-          <div class="card__inner-wrapper">
-            <img src="./assets/images/product-mx.png" class="" width="1000" height="auto" alt="Smartphones Category">
-          </div>
-        </a>
-      </article>
+      <div class="cards">
+        <article class="card card--tv">
+          <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.tvs/" target="_blank">
+            <div class="card__inner-wrapper">
+              <img src="./assets/images/product-qled-tv.png" class="card__image" width="500" height="500" alt="TVs Category">
+              <h2 class="card__header">TVs</h2>
+            </div>
+          </a>
+        </article>
+  
+        <article class="card card--sound-device">
+          <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.audio-devices/" target="_blank">
+            <div class="card__inner-wrapper">
+              <img src="./assets/images/product-sound-tower.png" class="card__image" width="500" height="500" alt="Sound Devices Category">
+              <h2 class="card__header">Sound Devices</h2>
+            </div>
+          </a>
+        </article>
+  
+        <article class="card card--washer-dryer">
+          <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.washers-and-dryers/" target="_blank">
+            <div class="card__inner-wrapper">
+              <img src="./assets/images/product-washer.png" class="card__image" width="500" height="500" alt="Washers and Dryers Category">
+              <h2 class="card__header">Washing Machines</h2>
+            </div>
+          </a>
+        </article>
+  
+        <article class="card card--monitor">
+          <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.monitors/" target="_blank">
+            <div class="card__inner-wrapper">
+              <img src="./assets/images/product-monitor.png" class="card__image" width="500" height="500" alt="Monitors Category">
+              <h2 class="card__header">Monitors</h2>
+            </div>
+          </a>
+        </article>
+  
+        <article class="card card--refrigerator">
+          <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.refrigerators/" target="_blank">
+            <div class="card__inner-wrapper">
+              <img src="./assets/images/product-refrigerator.png" class="card__image" width="500" height="500" alt="Refrigerators Category">
+              <h2 class="card__header">Refrigerators</h2>
+            </div>
+          </a>
+        </article>
+  
+        <article class="card card--microwave">
+          <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.microwave-ovens/" target="_blank">
+            <div class="card__inner-wrapper">
+              <img src="./assets/images/product-microwave.png" class="card__image" width="500" height="500" alt="Microwave Ovens Category">
+              <h2 class="card__header">Microwave Ovens</h2>
+            </div>
+          </a>
+        </article>
+  
+        <article class="card card--air-conditioner">
+          <a href="https://www.samsung.com/ph/multistore/sepco_o2o/finder.air-conditioners/" target="_blank">
+            <div class="card__inner-wrapper">
+              <img src="./assets/images/product-aircon.png" class="card__image card__image--ac" width="800" height="500" alt="Air Conditioners Category">
+              <h2 class="card__header">Air Conditioners</h2>
+            </div>
+          </a>
+        </article>
+      </div>
 
     </div>
   </body>
